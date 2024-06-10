@@ -42,7 +42,7 @@ public class UsersRestController {
 	
 	@PostMapping("/update")
 	public void update(@RequestBody UserVO vo) {
-		//System.out.println(vo.toString());
+		System.out.println(vo.toString());
 		dao.update(vo);
 	}
 	
