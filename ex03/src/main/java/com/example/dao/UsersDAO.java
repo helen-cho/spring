@@ -6,4 +6,6 @@ public interface UsersDAO {
 	public List<HashMap<String,Object>> list();
 	public HashMap<String,Object> read(String uid);
 	public void insert(UserVO vo);
+	public void update(UserVO vo);
+	public void delete(String uid);
 }

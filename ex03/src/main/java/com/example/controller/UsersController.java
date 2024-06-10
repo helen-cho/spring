@@ -7,8 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/users")
 public class UsersController {
+	
 	@GetMapping("/list")
 	public String list() {
 		return "/users/list.html";
+	}
+	
+	@GetMapping("/insert")
+	public String insert() {
+		return "/users/insert.html";
 	}
 }

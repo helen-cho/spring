@@ -30,4 +30,14 @@ public class UsersDAOImpl implements UsersDAO{
 		session.insert(namespace + ".insert", vo);
 	}
 
+	@Override
+	public void update(UserVO vo) {
+		session.update(namespace + ".update", vo);
+	}
+
+	@Override
+	public void delete(String uid) {
+		session.delete(namespace + ".delete", uid);
+	}
+
 }

@@ -3,8 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-</head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <body>
 	<h1>사용자목록</h1>
+	<a href="/users/insert">회원가입</a>
+	<div id="div_list"></div>
+	<script id="temp_list" type="handlebars-template">
+		<table border=1>
+			{{#each .}}
+				<tr>
+					<td>{{uid}}({{uname}})</td>
+					<td>{{phone}}</td>
+					<td>{{address1}} {{address2}}</td>
+					<td>{{fmtdate}}</td>
+				</tr>
+			{{/each}}
+		</table>
+	</script>
 </body>
+<script>
+	getList();
+	function getList(){
+		$.ajax({
+			type:"get",
+			url:"/users/list.json",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				const temp=Handlebars.compile($("#temp_list").html());
+				$("#div_list").html(temp(data));
+			}
+		})
+	}
+</script>
 </html>

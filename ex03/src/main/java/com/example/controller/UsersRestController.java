@@ -31,8 +31,23 @@ public class UsersRestController {
 	}
 	
 	@PostMapping("/insert")
-	public void insert(@RequestBody UserVO vo) {
-		dao.insert(vo);
+	public int insert(UserVO vo) {
+		if(dao.read(vo.getUid())==null) {
+			dao.insert(vo);
+			return 1;
+		}
+		return 0;
+	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody UserVO vo) {
+		//System.out.println(vo.toString());
+		dao.update(vo);
+	}
+	
+	@PostMapping("/delete/{uid}")
+	public void delete(@PathVariable("uid") String uid) {
+		dao.delete(uid);
 	}
 }
 
