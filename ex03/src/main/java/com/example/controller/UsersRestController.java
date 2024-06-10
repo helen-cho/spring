@@ -27,8 +27,12 @@ public class UsersRestController {
 	}
 	
 	@GetMapping("/plist.json") //테스트 /users/plist.json?page=1&size=3
-	public List<HashMap<String,Object>> list(QueryVO vo){
-		return dao.plist(vo);
+	public HashMap<String,Object> list(QueryVO vo){
+		HashMap<String,Object> map=new HashMap<String,Object>();
+		List<HashMap<String,Object>> list=dao.plist(vo);
+		map.put("documents", list);
+		map.put("total", dao.total());
+		return map;
 	}
 	
 	@GetMapping("/{uid}")

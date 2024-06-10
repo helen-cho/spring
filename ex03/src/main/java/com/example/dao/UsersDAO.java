@@ -10,4 +10,5 @@ public interface UsersDAO {
 	public void update(UserVO vo);
 	public void delete(String uid);
 	public List<HashMap<String,Object>> plist(QueryVO vo);
+	public int total();
 }

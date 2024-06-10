@@ -8,6 +8,7 @@
 <body>
 	<h1>사용자목록</h1>
 	<a href="/users/insert">회원가입</a>
+	<div>검색수:<span id="total"></span></div>
 	<div id="div_list"></div>
 	<div>
 		<button id="prev">이전</button>
@@ -16,7 +17,7 @@
 	</div>
 	<script id="temp_list" type="handlebars-template">
 		<table border=1>
-			{{#each .}}
+			{{#each documents}}
 				<tr>
 					<td><a href="/users/read/{{uid}}">{{uid}}({{uname}})</a></td>
 					<td>{{phone}}</td>
@@ -29,7 +30,7 @@
 </body>
 <script>
 	let page=1;
-	let size=3;
+	let size=5;
 	
 	$("#next").on("click", function(){
 		page++;
@@ -52,7 +53,16 @@
 				console.log(data);
 				const temp=Handlebars.compile($("#temp_list").html());
 				$("#div_list").html(temp(data));
-				$("#page").html(page);
+				const last=Math.ceil(data.total/size);
+				
+				$("#page").html(page + "/" + last);
+				$("#total").html(data.total);
+				
+				if(page==1) $("#prev").attr("disabled", true);
+				else $("#prev").attr("disabled", false);
+				
+				if(page==last) $("#next").attr("disabled", true);
+				else $("#next").attr("disabled", false);
 			}
 		})
 	}

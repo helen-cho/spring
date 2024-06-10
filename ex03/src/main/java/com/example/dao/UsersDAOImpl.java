@@ -46,4 +46,9 @@ public class UsersDAOImpl implements UsersDAO{
 		return session.selectList(namespace + ".plist", vo);
 	}
 
+	@Override
+	public int total() {
+		return session.selectOne(namespace + ".total");
+	}
+
 }
