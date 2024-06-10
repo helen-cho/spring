@@ -22,6 +22,22 @@
 	<select id="total" resultType="int">
 		select count(*) as total from users;
 	</select>
+	<select id="stotal" resultType="int">
+		select count(*) as total
+		from users
+		<if test="key=='uid'">
+ 			where uid like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='uname'">
+ 			where uname like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='phone'">
+ 			where phone like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='address1'">
+ 			where address1 like concat('%', #{word}, '%');
+ 		</if> 
+	</select>
 	<select id="plist" resultType="hashmap">
  		select *,date_format(regdate,'%Y년%m월%d일 %T') as fmtdate 
  		from users

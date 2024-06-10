@@ -12,4 +12,5 @@ public interface UsersDAO {
 	public List<HashMap<String,Object>> plist(QueryVO vo);
 	public List<HashMap<String,Object>> slist(QueryVO vo);
 	public int total();
+	public int total(QueryVO vo);
 }

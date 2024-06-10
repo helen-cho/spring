@@ -40,7 +40,7 @@ public class UsersRestController {
 		HashMap<String,Object> map=new HashMap<String,Object>();
 		List<HashMap<String,Object>> list=dao.slist(vo);
 		map.put("documents", list);
-		map.put("total", dao.total());
+		map.put("total", dao.total(vo));
 		return map;
 	}
 	
