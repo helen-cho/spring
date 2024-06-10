@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>사용자정보</h1>
+</body>
+<script>
+	const uid="${uid}";
+	alert(uid);
+</script>
+</html>
