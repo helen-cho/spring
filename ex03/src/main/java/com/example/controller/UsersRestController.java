@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dao.UsersDAO;
+import com.example.domain.QueryVO;
 import com.example.domain.UserVO;
 
 @RestController
@@ -23,6 +24,11 @@ public class UsersRestController {
 	@GetMapping("/list.json")
 	public List<HashMap<String,Object>> list(){
 		return dao.list();
+	}
+	
+	@GetMapping("/plist.json") //테스트 /users/plist.json?page=1&size=3
+	public List<HashMap<String,Object>> list(QueryVO vo){
+		return dao.plist(vo);
 	}
 	
 	@GetMapping("/{uid}")

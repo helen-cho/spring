@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.QueryVO;
 import com.example.domain.UserVO;
 
 @Repository
@@ -38,6 +39,11 @@ public class UsersDAOImpl implements UsersDAO{
 	@Override
 	public void delete(String uid) {
 		session.delete(namespace + ".delete", uid);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> plist(QueryVO vo) {
+		return session.selectList(namespace + ".plist", vo);
 	}
 
 }

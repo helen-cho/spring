@@ -9,6 +9,11 @@
 	<h1>사용자목록</h1>
 	<a href="/users/insert">회원가입</a>
 	<div id="div_list"></div>
+	<div>
+		<button id="prev">이전</button>
+		<span id="page">1</span>
+		<button id="next">다음</button>
+	</div>
 	<script id="temp_list" type="handlebars-template">
 		<table border=1>
 			{{#each .}}
@@ -23,16 +28,31 @@
 	</script>
 </body>
 <script>
+	let page=1;
+	let size=3;
+	
+	$("#next").on("click", function(){
+		page++;
+		getList();
+	});
+	
+	$("#prev").on("click", function(){
+		page--;
+		getList();
+	});
+	
 	getList();
 	function getList(){
 		$.ajax({
 			type:"get",
-			url:"/users/list.json",
+			url:"/users/plist.json",
 			dataType:"json",
+			data:{page, size},
 			success:function(data){
 				console.log(data);
 				const temp=Handlebars.compile($("#temp_list").html());
 				$("#div_list").html(temp(data));
+				$("#page").html(page);
 			}
 		})
 	}

@@ -1,6 +1,7 @@
 package com.example.dao;
 import java.util.*;
-import com.example.domain.UserVO;
+
+import com.example.domain.*;
 
 public interface UsersDAO {
 	public List<HashMap<String,Object>> list();
@@ -8,4 +9,5 @@ public interface UsersDAO {
 	public void insert(UserVO vo);
 	public void update(UserVO vo);
 	public void delete(String uid);
+	public List<HashMap<String,Object>> plist(QueryVO vo);
 }
