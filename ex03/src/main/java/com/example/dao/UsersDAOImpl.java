@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.UserVO;
+
 @Repository
 public class UsersDAOImpl implements UsersDAO{
 	@Autowired
@@ -16,6 +18,16 @@ public class UsersDAOImpl implements UsersDAO{
 	@Override
 	public List<HashMap<String, Object>> list() {
 		return session.selectList(namespace + ".list");
+	}
+
+	@Override
+	public HashMap<String, Object> read(String uid) {
+		return session.selectOne(namespace + ".read", uid);
+	}
+
+	@Override
+	public void insert(UserVO vo) {
+		session.insert(namespace + ".insert", vo);
 	}
 
 }
