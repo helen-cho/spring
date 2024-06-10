@@ -15,6 +15,12 @@ public class UsersController {
 	@Autowired
 	UsersDAO dao;
 	
+	@GetMapping("/update/{uid}")
+	public String update(@PathVariable("uid") String uid, Model model) {
+		model.addAttribute("user", dao.read(uid));
+		return "/users/update.html";
+	}
+	
 	@GetMapping("/read/{uid}")
 	public String read(@PathVariable("uid") String uid, Model model) {
 		model.addAttribute("user", dao.read(uid));

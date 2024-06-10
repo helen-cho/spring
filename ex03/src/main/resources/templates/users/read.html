@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>사용자정보</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 	<h1>사용자정보</h1>
@@ -19,6 +20,29 @@
 		<div>
 			가입일:<span th:text="${#dates.format(user.regDate,'yyyy.MM.dd HH:mm:dd')}"></span>
 		</div>
+		<button id="btn-delete">삭제</button>
+		<button id="btn-update">수정</button>
 	</div>
 </body>
+<script>
+	const uid="[[${user.uid}]]";
+	$("#btn-update").on("click", function(){
+		location.href="/users/update/" + uid;	
+	});
+	
+	$("#btn-delete").on("click", function(){	
+		if(!confirm(uid + " 아이디를 삭제하실래요?")) return;
+		$.ajax({
+			type:"post",
+			url:"/users/delete/" + uid,
+			success:function(){
+				alert("삭제완료!");
+				location.href="/users/list";
+			},
+			error:function(){
+				alert("삭제실패!");
+			}
+		});
+	});
+</script>
 </html>

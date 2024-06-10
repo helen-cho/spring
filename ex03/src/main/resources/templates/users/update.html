@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>사용자 정보수정</title>
+</head>
+<body xmlns:th="http://www.thymeleaf.org">
+	<h1>사용자 정보수정</h1>
+	<form name="frm">
+		<input th:value="${user.uid}"><br>
+		<input th:value="${user.uname}"><br>
+		<input th:value="${user.phone}"><br>
+		<input th:value="${user.address1}" size="50"><br>
+		<input th:value="${user.address2}"><br>
+	</form>
+</body>
+</html>
