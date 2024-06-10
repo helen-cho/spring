@@ -20,6 +20,12 @@
 <script>
 	let check=false;
 	$("#btn-check").on("click", function(){
+		const uid=$(frm.uid).val();
+		if(uid=="") {
+			alert("아이디를 입력하세요!");
+			$(frm.uid).focus();
+			return;
+		}
 		$.ajax({
 			type:"get",
 			url:"/users/" + $(frm.uid).val(),
@@ -59,7 +65,8 @@
 		$.ajax({
 			type:"post",
 			url:"/users/insert",
-			data:{uid, upass, uname},
+			contentType:"application/json",
+			data:JSON.stringify({uid, uname, upass}),
 			success:function(data){
 				if(data==1){
 					location.href="/users/list";

@@ -1,4 +1,5 @@
 package com.example.domain;
+import java.util.Date;
 
 public class UserVO {
 	private String uid;
@@ -8,7 +9,14 @@ public class UserVO {
 	private String address1;
 	private String address2;
 	private String photo;
+	private Date regDate;
 	
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -55,6 +63,6 @@ public class UserVO {
 	@Override
 	public String toString() {
 		return "UserVO [uid=" + uid + ", uname=" + uname + ", upass=" + upass + ", phone=" + phone + ", address1="
-				+ address1 + ", address2=" + address2 + ", photo=" + photo + "]";
+				+ address1 + ", address2=" + address2 + ", photo=" + photo + ", regDate=" + regDate + "]";
 	}
 }

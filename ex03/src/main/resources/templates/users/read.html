@@ -16,7 +16,9 @@
 			<span th:text="${user.address1}"></span>
 			<span th:text="${user.address2}"></span>
 		</div>
-		<div>가입일: <span th:text="${user.fmtdate}"></span></div>
+		<div>
+			가입일:<span th:text="${#dates.format(user.regDate,'yyyy.MM.dd HH:mm:dd')}"></span>
+		</div>
 	</div>
 </body>
 </html>

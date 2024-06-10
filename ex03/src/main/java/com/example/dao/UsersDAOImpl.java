@@ -21,7 +21,7 @@ public class UsersDAOImpl implements UsersDAO{
 	}
 
 	@Override
-	public HashMap<String, Object> read(String uid) {
+	public UserVO read(String uid) {
 		return session.selectOne(namespace + ".read", uid);
 	}
 

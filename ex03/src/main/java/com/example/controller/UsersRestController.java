@@ -26,12 +26,13 @@ public class UsersRestController {
 	}
 	
 	@GetMapping("/{uid}")
-	public HashMap<String,Object> read(@PathVariable("uid") String uid){
+	public UserVO read(@PathVariable("uid") String uid){
 		return dao.read(uid);
 	}
 	
 	@PostMapping("/insert")
-	public int insert(UserVO vo) {
+	public int insert(@RequestBody UserVO vo) {
+		System.out.println(vo.toString());
 		if(dao.read(vo.getUid())==null) {
 			dao.insert(vo);
 			return 1;

@@ -18,8 +18,8 @@
  		select *,date_format(regdate,'%Y년%m월%d일 %T') as fmtdate from users
 		order by regDate desc;
  	</select>
- 	<select id="read" resultType="hashmap">
- 		select *,date_format(regdate,'%Y년%m월%d일 %T') as fmtdate 
+ 	<select id="read" resultType="com.example.domain.UserVO">
+ 		select *
 		from users
 		where uid=#{uid};
  	</select>
