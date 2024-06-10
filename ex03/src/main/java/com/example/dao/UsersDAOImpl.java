@@ -51,4 +51,9 @@ public class UsersDAOImpl implements UsersDAO{
 		return session.selectOne(namespace + ".total");
 	}
 
+	@Override
+	public List<HashMap<String, Object>> slist(QueryVO vo) {
+		return session.selectList(namespace + ".slist", vo);
+	}
+
 }

@@ -8,7 +8,17 @@
 <body>
 	<h1>사용자목록</h1>
 	<a href="/users/insert">회원가입</a>
-	<div>검색수:<span id="total"></span></div>
+	<form name="frm">
+		<select name="key">
+			<option value="uid">아이디</option>
+			<option value="uname">이름</option>
+			<option value="address1">주소</option>
+			<option value="phone">전화</option>
+		</select>
+		<input name="word" placeholder="검색어">
+		<button>검색</button>
+		검색수:<span id="total"></span>
+	</form>
 	<div id="div_list"></div>
 	<div>
 		<button id="prev">이전</button>
@@ -31,6 +41,16 @@
 <script>
 	let page=1;
 	let size=5;
+	let key=$(frm.key).val();
+	let word=$(frm.word).val();
+	
+	$(frm).on("submit", function(e){
+		e.preventDefault();
+		key=$(frm.key).val();
+		word=$(frm.word).val();
+		page=1;
+		getList();
+	});
 	
 	$("#next").on("click", function(){
 		page++;
@@ -48,7 +68,7 @@
 			type:"get",
 			url:"/users/plist.json",
 			dataType:"json",
-			data:{page, size},
+			data:{page, size, key, word},
 			success:function(data){
 				console.log(data);
 				const temp=Handlebars.compile($("#temp_list").html());

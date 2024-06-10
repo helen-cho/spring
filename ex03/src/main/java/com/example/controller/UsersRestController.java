@@ -35,6 +35,15 @@ public class UsersRestController {
 		return map;
 	}
 	
+	@GetMapping("/slist.json") //테스트 /users/slist.json?page=1&size=3&key=address1&word=인천
+	public HashMap<String,Object> slist(QueryVO vo){
+		HashMap<String,Object> map=new HashMap<String,Object>();
+		List<HashMap<String,Object>> list=dao.slist(vo);
+		map.put("documents", list);
+		map.put("total", dao.total());
+		return map;
+	}
+	
 	@GetMapping("/{uid}")
 	public UserVO read(@PathVariable("uid") String uid){
 		return dao.read(uid);
