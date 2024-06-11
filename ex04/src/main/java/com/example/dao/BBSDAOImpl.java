@@ -31,4 +31,8 @@ public class BBSDAOImpl implements BBSDAO{
 		return session.selectOne(namespace + ".read", bid);
 	}
 
+	@Override
+	public void delete(int bid) {
+		session.delete(namespace + ".delete", bid);
+	}
 }
