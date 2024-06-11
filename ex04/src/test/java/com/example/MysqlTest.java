@@ -19,6 +19,10 @@ public class MysqlTest {
 	@Test
 	public void test() {
 		QueryVO vo=new QueryVO();
+		vo.setKey("title");
+		vo.setWord("이유");
+		vo.setPage(2);
+		vo.setSize(3);
 		bdao.list(vo);
 	}
 }

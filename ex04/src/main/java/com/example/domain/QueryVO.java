@@ -32,7 +32,7 @@ public class QueryVO {
 		this.key = key;
 	}
 	public String getWord() {
-		return word;
+		return "%" + word + "%";
 	}
 	public void setWord(String word) {
 		this.word = word;

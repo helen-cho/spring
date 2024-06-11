@@ -4,8 +4,19 @@
  	<select id="list" resultType="hashmap">
  		select *,date_format(regdate,'%Y년%m월%d일 %T') as fmtdate 
 		from view_bbs
-		where uname like '%레드%'
+		<if test="key=='uid'">where uid like #{word}</if>
+		<if test="key=='uname'">where uname like #{word}</if>
+		<if test="key=='title'">where title like #{word}</if>
+		<if test="key=='contents'">where contents like #{word}</if>
 		order by bid desc
-		limit 0, 5;
+		limit #{start}, #{size} ;
+ 	</select>
+ 	<select id="total" resultType="int">
+ 		select count(*)
+ 		from view_bbs
+ 		<if test="key=='uid'">where uid like #{word}</if>
+		<if test="key=='uname'">where uname like #{word}</if>
+		<if test="key=='title'">where title like #{word}</if>
+		<if test="key=='contents'">where contents like #{word}</if>
  	</select>
 </mapper>

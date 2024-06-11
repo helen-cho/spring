@@ -5,4 +5,5 @@ import com.example.domain.*;
 
 public interface BBSDAO {
 	public List<HashMap<String,Object>> list(QueryVO vo);
+	public int total(QueryVO vo);
 }
