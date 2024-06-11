@@ -15,6 +15,12 @@ public class BBSController {
 	@Autowired
 	BBSDAO dao;
 	
+	@GetMapping("/insert")
+	public String insert(Model model) {
+		model.addAttribute("pageName", "/bbs/insert.html");
+		return "/home.html";
+	}
+	
 	@GetMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("pageName", "/bbs/list.html");

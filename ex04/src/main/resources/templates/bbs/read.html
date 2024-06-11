@@ -12,7 +12,7 @@
 		작성일:<span th:text="${#dates.format(bbs.regDate,'yyyy.MM.dd HH:mm:dd')}"></span>
 	</div>
 	<hr>
-	<div th:text="${bbs.contents}"></div>
+	<div th:text="${bbs.contents}" style="white-Space:pre-wrap"></div>
 	<div id="buttons">
 		<button id="btn-update">수정</button>
 		<button id="btn-delete">삭제</button>

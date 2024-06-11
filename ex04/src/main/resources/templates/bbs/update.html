@@ -17,11 +17,7 @@
 		$.ajax({
 			type:"post",
 			url:"/bbs/update",
-			data:{
-				title:$(frm.title).val(), 
-				contents:$(frm.contents).val(), 
-				bid
-			},
+			data:{title:$(frm.title).val(),contents:$(frm.contents).val(),bid},
 			success:function(){
 				location.href="/bbs/read/" + bid;
 			}	

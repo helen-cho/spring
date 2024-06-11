@@ -40,4 +40,9 @@ public class BBSDAOImpl implements BBSDAO{
 	public void update(BBSVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public void insert(BBSVO vo) {
+		session.insert(namespace + ".insert", vo);
+	}
 }

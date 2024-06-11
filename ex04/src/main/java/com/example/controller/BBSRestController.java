@@ -19,6 +19,11 @@ public class BBSRestController {
 	@Autowired
 	BBSDAO dao;
 	
+	@PostMapping("/insert")
+	public void insert(BBSVO vo) {
+		dao.insert(vo);
+	}
+	
 	@PostMapping("/update")
 	public void update(BBSVO vo) {
 		dao.update(vo);

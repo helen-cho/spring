@@ -9,4 +9,5 @@ public interface BBSDAO {
 	public BBSVO read(int bid);
 	public void delete(int bid);
 	public void update(BBSVO vo);
+	public void insert(BBSVO vo);
 }
