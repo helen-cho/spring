@@ -24,5 +24,6 @@ public class MysqlTest {
 		vo.setPage(2);
 		vo.setSize(3);
 		bdao.list(vo);
+		bdao.total(vo);
 	}
 }

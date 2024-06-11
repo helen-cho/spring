@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.dao.UserDAO;
 import com.example.domain.UserVO;
 
@@ -19,5 +18,4 @@ public class UsersRestController {
 	public UserVO read(@PathVariable("uid") String uid) {
 		return dao.read(uid);
 	}
-	
 }
