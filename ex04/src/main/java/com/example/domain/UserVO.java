@@ -1,6 +1,8 @@
 package com.example.domain;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class UserVO {
 	private String uid;
 	private String uname;
@@ -9,6 +11,8 @@ public class UserVO {
 	private String address1;
 	private String address2;
 	private String photo;
+	
+	@JsonFormat(pattern="yyyy년MM월dd일 HH:mm:ss", timezone="Asia/Seoul")
 	private Date regDate;
 	
 	public Date getRegDate() {
