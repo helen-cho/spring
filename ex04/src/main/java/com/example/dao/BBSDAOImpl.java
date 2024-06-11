@@ -35,4 +35,9 @@ public class BBSDAOImpl implements BBSDAO{
 	public void delete(int bid) {
 		session.delete(namespace + ".delete", bid);
 	}
+
+	@Override
+	public void update(BBSVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }

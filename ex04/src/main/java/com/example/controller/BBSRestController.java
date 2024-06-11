@@ -19,6 +19,11 @@ public class BBSRestController {
 	@Autowired
 	BBSDAO dao;
 	
+	@PostMapping("/update")
+	public void update(BBSVO vo) {
+		dao.update(vo);
+	}
+	
 	@PostMapping("/delete/{bid}")
 	public void delete(@PathVariable("bid") int bid) {
 		dao.delete(bid);
