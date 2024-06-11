@@ -21,13 +21,13 @@
 	</div>
 	<script id="temp_list" type="x-handlebars-template">
 		{{#each documents}}
-			<div>{{bid}} {{title}} {{uname}} ({{uid}})</div>
+			<div><a href="/bbs/read/{{bid}}">{{bid}} {{title}} {{uname}} ({{uid}})</a></div>
 		{{/each}}
 	</script>
 </div>
 <script>
 	let page=1;
-	let size=5;
+	let size=10;
 	let key=$(frm.key).val();
 	let word=$(frm.word).val();
 	getList();

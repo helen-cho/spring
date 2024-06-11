@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.BBSVO;
 import com.example.domain.QueryVO;
 
 @Repository
@@ -23,6 +24,11 @@ public class BBSDAOImpl implements BBSDAO{
 	@Override
 	public int total(QueryVO vo) {
 		return session.selectOne(namespace + ".total", vo);
+	}
+
+	@Override
+	public BBSVO read(int bid) {
+		return session.selectOne(namespace + ".read", bid);
 	}
 
 }
