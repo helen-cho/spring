@@ -14,13 +14,17 @@
 	<hr>
 	<div th:text="${bbs.contents}"></div>
 	<div id="buttons">
-		<button>수정</button>
+		<button id="btn-update">수정</button>
 		<button id="btn-delete">삭제</button>
 	</div>
 </div>
 <script>
 	const uid="[[${bbs.uid}]]";
 	const bid="[[${bbs.bid}]]";
+	$("#btn-update").on("click", function(){
+		location.href="/bbs/update/" + bid;	
+	});
+	
 	$("#btn-delete").on("click", function(){
 		if(!confirm(bid + "번 게시글을 삭제하실래요?")) return;
 		$.ajax({

@@ -27,4 +27,11 @@ public class BBSController {
 		model.addAttribute("pageName", "/bbs/read.html");
 		return "/home.html";
 	}
+	
+	@GetMapping("/update/{bid}")
+	public String update(@PathVariable("bid") int bid, Model model) {
+		model.addAttribute("bbs", dao.read(bid));
+		model.addAttribute("pageName", "/bbs/update.html");
+		return "/home.html";
+	}
 }
