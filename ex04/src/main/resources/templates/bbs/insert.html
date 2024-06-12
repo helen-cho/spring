@@ -23,7 +23,8 @@
 		$.ajax({
 			type:"post",
 			url:"/bbs/insert",
-			data:{uid, title, contents},
+			contentType:"application/json",
+			data:JSON.stringify({uid, title, contents}),
 			success:function(){
 				location.href="/bbs/list";
 			}
