@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dao.BBSDAO;
@@ -30,7 +31,7 @@ public class BBSRestController {
 	}
 	
 	@PostMapping("/update")
-	public void update(BBSVO vo) {
+	public void update(@RequestBody BBSVO vo) {
 		dao.update(vo);
 	}
 	
@@ -48,7 +49,11 @@ public class BBSRestController {
 	}
 	
 	@GetMapping("/{bid}")
-	public BBSVO read(@PathVariable("bid") int bid) {
-		return service.read(bid);
+	public BBSVO read(@PathVariable("bid") int bid, @RequestParam("isCnt") boolean isCnt) {
+		if(isCnt) {
+			return service.read(bid);
+		}else {
+			return dao.read(bid);
+		}
 	}
 }

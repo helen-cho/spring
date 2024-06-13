@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.dao.BBSDAO;
+import com.example.service.BBSService;
 
 @Controller
 @RequestMapping("/bbs")
 public class BBSController {
 	@Autowired
 	BBSDAO dao;
+	
+	@Autowired
+	BBSService service;
 	
 	@GetMapping("/insert")
 	public String insert(Model model) {
@@ -29,7 +33,7 @@ public class BBSController {
 	
 	@GetMapping("/read/{bid}")
 	public String read(@PathVariable("bid") int bid, Model model) {
-		model.addAttribute("bbs", dao.read(bid));
+		model.addAttribute("bbs", service.read(bid));
 		model.addAttribute("pageName", "/bbs/read.html");
 		return "/home.html";
 	}

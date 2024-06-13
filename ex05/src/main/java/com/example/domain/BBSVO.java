@@ -2,10 +2,14 @@ package com.example.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class BBSVO extends UserVO{
 	private int bid;
 	private String title;
 	private String contents;
+	
+	@JsonFormat(pattern="yyyy년MM월dd일 HH:mm:ss", timezone="Asia/Seoul")
 	private Date regDate;
 	private String uid;
 	private int viewcnt;

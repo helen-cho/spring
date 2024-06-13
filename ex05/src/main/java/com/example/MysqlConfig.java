@@ -42,4 +42,9 @@ public class MysqlConfig {
 	SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactioy) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactioy);
 	}
+	
+	 @Bean
+	 DataSourceTransactionManager txManager(DataSource dataSource) {
+		 return new DataSourceTransactionManager(dataSource);
+	 }
 }

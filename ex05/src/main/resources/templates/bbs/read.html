@@ -7,6 +7,7 @@
 	<div>
 		작성자:<span th:text="${bbs.uid}"></span>
 		<span th:text="${bbs.uname}"></span>
+		<span th:text="${bbs.viewcnt}" style="color:red"></span>
 	</div>
 	<div>
 		작성일:<span th:text="${#dates.format(bbs.regDate,'yyyy.MM.dd HH:mm:dd')}"></span>
