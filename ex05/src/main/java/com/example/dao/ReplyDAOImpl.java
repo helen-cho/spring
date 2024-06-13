@@ -34,6 +34,16 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public int total(int bid) {
 		return session.selectOne(namespace + ".total", bid);
 	}
+
+	@Override
+	public void delete(int rid) {
+		session.delete(namespace + ".delete", rid);
+	}
+
+	@Override
+	public void update(ReplyVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }
 
 

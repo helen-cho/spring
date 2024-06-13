@@ -34,6 +34,16 @@ public class ReplyRestController {
 		map.put("documents", dao.list(bid, vo));
 		return map;
 	}
+	
+	@PostMapping("/delete/{rid}")
+	public void delete(@PathVariable("rid") int rid) {
+		dao.delete(rid);
+	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody ReplyVO vo) {
+		dao.update(vo);
+	}
 }
 
 
