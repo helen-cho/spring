@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.dao.ReplyDAO;
 import com.example.domain.QueryVO;
 import com.example.domain.ReplyVO;
+import com.example.service.ReplyService;
 
 @RestController
 @RequestMapping("/reply")
@@ -22,9 +23,12 @@ public class ReplyRestController {
 	@Autowired
 	ReplyDAO dao;
 	
+	@Autowired
+	ReplyService service;
+	
 	@PostMapping("/insert")
 	public void insert(@RequestBody ReplyVO vo) {
-		dao.insert(vo);
+		service.insert(vo);
 	}
 	
 	@GetMapping("/list.json/{bid}")
@@ -37,11 +41,12 @@ public class ReplyRestController {
 	
 	@PostMapping("/delete/{rid}")
 	public void delete(@PathVariable("rid") int rid) {
-		dao.delete(rid);
+		service.delete(rid);
 	}
 	
 	@PostMapping("/update")
 	public void update(@RequestBody ReplyVO vo) {
+		System.out.println(vo.toString());
 		dao.update(vo);
 	}
 }

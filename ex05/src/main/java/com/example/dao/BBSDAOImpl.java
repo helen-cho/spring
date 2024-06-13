@@ -50,4 +50,12 @@ public class BBSDAOImpl implements BBSDAO{
 	public void updateViewcnt(int bid) {
 		session.update(namespace + ".updateViewcnt", bid);
 	}
+
+	@Override
+	public void updateReplycnt(int bid, int amount) {
+		HashMap<String,Object> map=new HashMap<>();
+		map.put("bid", bid);
+		map.put("amount", amount);
+		session.update(namespace + ".updateReplycnt", map);
+	}
 }

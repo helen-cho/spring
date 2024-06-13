@@ -44,6 +44,11 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public void update(ReplyVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public ReplyVO read(int rid) {
+		return session.selectOne(namespace + ".read", rid);
+	}
 }
 
 

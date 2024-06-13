@@ -9,4 +9,5 @@ public interface ReplyDAO {
 	public int total(int bid);
 	public void delete(int rid);
 	public void update(ReplyVO vo);
+	public ReplyVO read(int rid);
 }
