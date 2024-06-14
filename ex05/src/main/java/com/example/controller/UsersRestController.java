@@ -32,13 +32,23 @@ public class UsersRestController {
 	}
 	
 	@PostMapping("/photo/{uid}")
-	public void photo(@PathVariable("uid") String uid, MultipartHttpServletRequest multi)throws Exception {
+	public void photo(@PathVariable("uid") String uid, MultipartHttpServletRequest multi){
 		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()) {
-			String filePath = "/upload/photo/";
-			String fileName = System.currentTimeMillis() + ".jpg";
-			file.transferTo(new File("c:" + filePath + fileName));
+		try {
+			if(!file.isEmpty()) {
+				String filePath = "/upload/photo/";
+				String fileName = System.currentTimeMillis() + ".jpg";
+				file.transferTo(new File("c:" + filePath + fileName));
+				dao.updatePhoto(filePath + fileName, uid);
+			}
+		}catch(Exception e) {
+			System.out.println("사진업로드오류:" + e.toString());
 		}
+	}
+	
+	@PostMapping("/update/pass")
+	public void pass(@RequestBody UserVO vo) {
+		dao.updatePass(vo.getUpass(), vo.getUid());
 	}
 }
 
