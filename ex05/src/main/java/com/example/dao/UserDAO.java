@@ -3,4 +3,5 @@ import com.example.domain.*;
 
 public interface UserDAO {
 	public UserVO read(String uid);
+	public void update(UserVO vo);
 }

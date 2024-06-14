@@ -7,7 +7,7 @@
 	</select>
 	<update id="update">
 		update reply
-		set contents=#{contents}, updateDate=now()
+		set contents=#{contents}, updateDate=now(), rating=#{rating}
 		where rid=#{rid}
 	</update>
 	<delete id="delete">
@@ -25,7 +25,7 @@
 		limit #{start}, #{size};
 	</select>
  	<insert id="insert">
- 		insert into reply(bid, uid, contents)
- 		values(#{bid}, #{uid}, #{contents})
+ 		insert into reply(bid, uid, contents, rating)
+ 		values(#{bid}, #{uid}, #{contents}, #{rating})
  	</insert>
 </mapper>

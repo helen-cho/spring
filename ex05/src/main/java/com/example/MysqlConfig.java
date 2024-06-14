@@ -43,8 +43,8 @@ public class MysqlConfig {
 		return new SqlSessionTemplate(sqlSessionFactioy);
 	}
 	
-	 @Bean
-	 DataSourceTransactionManager txManager(DataSource dataSource) {
-		 return new DataSourceTransactionManager(dataSource);
-	 }
+	@Bean
+	DataSourceTransactionManager txManager(DataSource dataSource) {
+		return new DataSourceTransactionManager(dataSource);
+	}
 }

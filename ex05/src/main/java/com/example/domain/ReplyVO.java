@@ -11,6 +11,14 @@ public class ReplyVO extends UserVO{
 	@JsonFormat(pattern="yyyy년MM월dd일 HH:mm:ss", timezone="Asia/Seoul")
 	private Date regDate;
 	private String contents;
+	private int rating;
+	
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 	public int getRid() {
 		return rid;
 	}
