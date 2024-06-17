@@ -1,5 +1,7 @@
 package com.example.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,5 +32,10 @@ public class MessageDAOImpl implements MessageDAO{
 	@Override
 	public void updateReadDate(int mid) {
 		session.update(namespace + ".updateReadDate", mid);
+	}
+
+	@Override
+	public List<MessageVO> listSend(String sender) {
+		return session.selectList(namespace + ".listSend", sender);
 	}
 }
