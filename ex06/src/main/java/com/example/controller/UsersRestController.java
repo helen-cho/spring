@@ -1,8 +1,10 @@
 package com.example.controller;
 
 import java.io.File;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ import com.example.domain.UserVO;
 public class UsersRestController {
 	@Autowired
 	UserDAO dao;
+	
+	@Autowired
+	PasswordEncoder encoder;
 	
 	@GetMapping("/{uid}") //테스트 /users/blue
 	public UserVO read(@PathVariable("uid") String uid) {
@@ -49,6 +54,11 @@ public class UsersRestController {
 	@PostMapping("/update/pass")
 	public void pass(@RequestBody UserVO vo) {
 		dao.updatePass(vo.getUpass(), vo.getUid());
+	}
+	
+	@GetMapping("")
+	public List<UserVO> list(){
+		return dao.list();
 	}
 }
 

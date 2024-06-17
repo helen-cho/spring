@@ -9,4 +9,5 @@ public interface MessageDAO {
 	public MessageVO readReceive(int mid);
 	public void updateReadDate(int mid);
 	public List<MessageVO> listSend(String sender);
+	public List<MessageVO> listReceive(String receiver);
 }

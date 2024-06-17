@@ -38,4 +38,9 @@ public class MessageDAOImpl implements MessageDAO{
 	public List<MessageVO> listSend(String sender) {
 		return session.selectList(namespace + ".listSend", sender);
 	}
+
+	@Override
+	public List<MessageVO> listReceive(String receiver) {
+		return session.selectList(namespace + ".listReceive", receiver);
+	}
 }

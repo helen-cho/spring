@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +36,16 @@ public class MessageRestController {
 	@GetMapping("/receive/{mid}")
 	public MessageVO readReceive(@PathVariable("mid") int mid) {
 		return service.readReceive(mid);
+	}
+	
+	@GetMapping("/send.json/{sender}")
+	public List<MessageVO> listSend(@PathVariable("sender") String sender){
+		return dao.listSend(sender);
+	}
+	
+	@GetMapping("/receive.json/{receiver}")
+	public List<MessageVO> listReceiver(@PathVariable("receiver") String receiver){
+		return dao.listReceive(receiver);
 	}
 }
 

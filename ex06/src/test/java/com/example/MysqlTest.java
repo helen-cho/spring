@@ -28,7 +28,7 @@ public class MysqlTest {
 	
 	@Test
 	public void test() {
-		mdao.listSend("blue");
+		mdao.listReceive("red");
 	}
 }
 

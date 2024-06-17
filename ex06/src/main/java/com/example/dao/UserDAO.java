@@ -1,4 +1,6 @@
 package com.example.dao;
+import java.util.List;
+
 import com.example.domain.*;
 
 public interface UserDAO {
@@ -7,4 +9,5 @@ public interface UserDAO {
 	public void updatePhoto(String photo, String uid);
 	public void updatePass(String upass, String uid);
 	public void updatePoint(String uid, int amount);
+	public List<UserVO> list();
 }
