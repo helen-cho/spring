@@ -57,7 +57,18 @@ public class MessageRestController {
 	public void deleteSend(@PathVariable("mid") int mid) {
 		dao.deleteSend(mid);
 	}
+	
+	@GetMapping("/delete/list/{uid}")
+	public List<MessageVO> deleteList(@PathVariable("uid") String uid){
+		return dao.listDelete(uid);
+	}
 }
+
+
+
+
+
+
 
 
 

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.MessageMapper">
 	<select id="listDelete" resultType="com.example.domain.MessageVO">
-		select m.*, u.uname
-		from messages m, users u
-		where receiver=#{receiver} and u.uid=m.sender and (receiveDelete=1 or sendDelete=1)
-		order by mid desc; 
+		select * from messages
+		where (sender=#{uid} and sendDelete=1)
+		or (receiver=#{uid} and receiveDelete=1)
+		order by mid desc;
 	</select>
 	<update id="deleteReceive">
 		update messages

@@ -54,4 +54,9 @@ public class MessageDAOImpl implements MessageDAO{
 		session.update(namespace + ".deleteSend", mid);
 		
 	}
+
+	@Override
+	public List<MessageVO> listDelete(String uid) {
+		return session.selectList(namespace + ".listDelete", uid);
+	}
 }

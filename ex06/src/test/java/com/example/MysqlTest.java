@@ -28,7 +28,7 @@ public class MysqlTest {
 	
 	@Test
 	public void test() {
-		mdao.deleteSend(9);
+		mdao.listDelete("blue");
 	}
 }
 

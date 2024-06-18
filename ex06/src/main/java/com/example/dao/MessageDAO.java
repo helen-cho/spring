@@ -12,4 +12,5 @@ public interface MessageDAO {
 	public List<MessageVO> listReceive(String receiver);
 	public void deleteReceive(int mid);
 	public void deleteSend(int mid);
+	public List<MessageVO> listDelete(String uid);
 }
