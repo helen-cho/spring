@@ -47,6 +47,16 @@ public class MessageRestController {
 	public List<MessageVO> listReceiver(@PathVariable("receiver") String receiver){
 		return dao.listReceive(receiver);
 	}
+	
+	@PostMapping("/receive/delete/{mid}")
+	public void deleteReceive(@PathVariable("mid") int mid) {
+		dao.deleteReceive(mid);
+	}
+	
+	@PostMapping("/send/delete/{mid}")
+	public void deleteSend(@PathVariable("mid") int mid) {
+		dao.deleteSend(mid);
+	}
 }
 
 

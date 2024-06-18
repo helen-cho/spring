@@ -13,7 +13,21 @@ public class MessageVO extends UserVO{
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	private Date readDate;
 	private String message;
+	private int sendDelete;
+	private int receiveDelete;
 	
+	public int getSendDelete() {
+		return sendDelete;
+	}
+	public void setSendDelete(int sendDelete) {
+		this.sendDelete = sendDelete;
+	}
+	public int getReceiveDelete() {
+		return receiveDelete;
+	}
+	public void setReceiveDelete(int receiveDelete) {
+		this.receiveDelete = receiveDelete;
+	}
 	public int getMid() {
 		return mid;
 	}

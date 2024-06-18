@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.MessageMapper">
+	<select id="listDelete" resultType="com.example.domain.MessageVO">
+		select m.*, u.uname
+		from messages m, users u
+		where receiver=#{receiver} and u.uid=m.sender and (receiveDelete=1 or sendDelete=1)
+		order by mid desc; 
+	</select>
+	<update id="deleteReceive">
+		update messages
+		set receiveDelete=1
+		where mid=#{mid}
+	</update>
+	<update id="deleteSend">
+		update messages
+		set sendDelete=1
+		where mid=#{mid}
+	</update>
 	<select id="listReceive" resultType="com.example.domain.MessageVO">
 		select m.*, u.uname
 		from messages m, users u
-		where receiver=#{receiver} and u.uid=m.sender
+		where receiver=#{receiver} and u.uid=m.sender and receiveDelete=0
 		order by mid desc; 
 	</select>
 	<select id="listSend" resultType="com.example.domain.MessageVO">
 		select m.*, u.uname
 		from messages m, users u
-		where sender=#{sender} and u.uid=m.receiver
+		where sender=#{sender} and u.uid=m.receiver and sendDelete=0
 		order by mid desc; 
 	</select>
 	<update id="updateReadDate">
