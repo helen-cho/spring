@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.MessageMapper">
+	<update id="resetDelete">
+		update messages
+		<if test="type=='send'">
+			set sendDelete=0
+		</if>
+		<if test="type=='receive'">
+			set receiveDelete=0
+		</if>
+		where mid=#{mid}
+	</update>
 	<select id="listDelete" resultType="com.example.domain.MessageVO">
 		select * from messages
 		where (sender=#{uid} and sendDelete=1)
