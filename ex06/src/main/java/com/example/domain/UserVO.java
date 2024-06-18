@@ -11,7 +11,15 @@ public class UserVO {
 	private String address1;
 	private String address2;
 	private String photo;
+	private int point;
 	
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	@JsonFormat(pattern="yyyy년MM월dd일 HH:mm:ss", timezone="Asia/Seoul")
 	private Date regDate;
 	
