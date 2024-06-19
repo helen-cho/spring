@@ -3,6 +3,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,4 +34,30 @@ public class StuController {
 		map.put("list", dao.list(vo));
 		return map;
 	}
+	
+	@GetMapping("/{scode}") //테스트 /stu/92414033
+	public StuVO read(@PathVariable("scode") String scode) {
+		return dao.read(scode);
+	}
+	
+	@PostMapping("/delete/{scode}") //테스트 /stu/delete/92414033
+	public void delete(@PathVariable("scode") String scode) {
+		dao.delete(scode);
+	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody StuVO vo) {
+		dao.update(vo);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

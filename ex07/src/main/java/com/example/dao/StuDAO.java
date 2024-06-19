@@ -7,4 +7,7 @@ public interface StuDAO {
 	public int total(QueryVO vo);
 	public String getcode(String yy, String dept);
 	public void insert(StuVO vo);
+	public StuVO read(String scode);
+	public void delete(String scode);
+	public void update(StuVO vo);
 }

@@ -38,4 +38,19 @@ public class StuDAOImpl implements StuDAO{
 	public void insert(StuVO vo) {
 		session.insert(namespace + ".insert", vo);
 	}
+
+	@Override
+	public StuVO read(String scode) {
+		return session.selectOne(namespace + ".read", scode);
+	}
+
+	@Override
+	public void delete(String scode) {
+		session.delete(namespace + ".delete", scode);
+	}
+
+	@Override
+	public void update(StuVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }
