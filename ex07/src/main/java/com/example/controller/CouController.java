@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,11 @@ public class CouController {
 	}
 	
 	@GetMapping("") //테스트 /cou?page=1&size=3
-	public List<CouVO> list(QueryVO vo){
-		return dao.list(vo);
+	public HashMap<String, Object> list(QueryVO vo){
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("total", dao.total());
+		map.put("list", dao.list(vo));
+		return map;
 	}
 	
 	@PostMapping("/insert")

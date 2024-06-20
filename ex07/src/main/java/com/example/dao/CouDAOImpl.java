@@ -44,4 +44,9 @@ public class CouDAOImpl implements CouDAO{
 	public void update(CouVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public int total() {
+		return session.selectOne(namespace + ".total");
+	}
 }

@@ -9,4 +9,5 @@ public interface CouDAO {
 	public CouVO read(String lcode);
 	public void delete(String lcode);
 	public void update(CouVO vo);
+	public int total();
 }
