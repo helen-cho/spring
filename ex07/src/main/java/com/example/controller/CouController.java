@@ -37,6 +37,7 @@ public class CouController {
 	
 	@PostMapping("/update")
 	public void update(@RequestBody CouVO vo) {
+		System.out.println(vo.toString());
 		dao.update(vo);
 	}
 	
