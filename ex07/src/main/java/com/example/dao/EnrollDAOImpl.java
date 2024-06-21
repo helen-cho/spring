@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.EnrollVO;
+
 @Repository
 public class EnrollDAOImpl implements EnrollDAO{
 	@Autowired

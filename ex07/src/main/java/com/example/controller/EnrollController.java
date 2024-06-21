@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dao.EnrollDAO;
-import com.example.dao.EnrollVO;
+import com.example.domain.EnrollVO;
 import com.example.service.EnrollService;
 
 @RestController

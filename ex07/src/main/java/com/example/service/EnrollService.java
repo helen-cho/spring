@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.dao.EnrollVO;
+import com.example.domain.EnrollVO;
 
 public interface EnrollService {
 	public int insert(EnrollVO vo);

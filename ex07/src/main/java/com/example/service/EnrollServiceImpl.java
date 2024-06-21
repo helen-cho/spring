@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.CouDAO;
 import com.example.dao.EnrollDAO;
-import com.example.dao.EnrollVO;
+import com.example.domain.EnrollVO;
 
 @Service
 public class EnrollServiceImpl implements EnrollService{
