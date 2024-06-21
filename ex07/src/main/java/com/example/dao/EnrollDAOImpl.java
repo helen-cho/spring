@@ -39,4 +39,9 @@ public class EnrollDAOImpl implements EnrollDAO{
 	public List<HashMap<String, Object>> lcodeList(String lcode) {
 		return session.selectList(namespace + ".lcodeList", lcode);
 	}
+
+	@Override
+	public void update(EnrollVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }

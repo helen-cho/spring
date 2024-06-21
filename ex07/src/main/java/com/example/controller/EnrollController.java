@@ -44,6 +44,12 @@ public class EnrollController {
 	public void delete(@RequestBody EnrollVO vo) {
 		service.delete(vo);
 	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody EnrollVO vo) {
+		System.out.println(vo.toString());
+		dao.update(vo);
+	}
 }
 
 
