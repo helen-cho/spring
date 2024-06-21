@@ -18,4 +18,23 @@ public class EnrollDAOImpl implements EnrollDAO{
 		return session.selectList(namespace + ".scodeList", scode);
 	}
 
+	@Override
+	public int check(EnrollVO vo) {
+		return session.selectOne(namespace + ".check", vo);
+	}
+
+	@Override
+	public void insert(EnrollVO vo) {
+		session.insert(namespace + ".insert", vo);
+	}
+
+	@Override
+	public void delete(EnrollVO vo) {
+		session.delete(namespace + ".delete", vo);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> lcodeList(String lcode) {
+		return session.selectList(namespace + ".lcodeList", lcode);
+	}
 }
