@@ -14,7 +14,6 @@ import org.jsoup.select.Elements;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.*;
-
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +24,43 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/crawl")
 public class Crawling {
+	@GetMapping("/gmarket") //테스트 /crawl/gmarket?query=키보드
+	public List<HashMap<String,Object>> gmarket(@RequestParam("query") String query){
+		List<HashMap<String,Object>> list=new ArrayList<>();
+		try {
+			ChromeOptions options=new ChromeOptions();
+			options.addArguments("headless");
+			WebDriver driver=new ChromeDriver(options);
+			driver.get("https://www.gmarket.co.kr/");
+			WebElement input=driver.findElement(By.name("keyword"));
+			input.sendKeys(query);
+			WebElement search=driver.findElement(By.className("button__search"));
+			search.click();
+			((JavascriptExecutor)driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			List<WebElement> es=driver.findElements(By.className("box__item-container"));
+			int index=0;
+			for(WebElement e:es) {
+				index++;
+				String title=e.findElement(By.className("text__item")).getAttribute("title");
+				String price=e.findElement(By.className("text__value")).getText();
+				String image=e.findElement(By.className("image__item")).getAttribute("src");
+				System.out.println(index + "---" + title);
+				System.out.println(price);
+				System.out.println(image);
+				System.out.println("--------------------------------");
+				HashMap<String,Object> map=new HashMap<>();
+				map.put("title", title);
+				map.put("price", price);
+				map.put("image", image);
+				list.add(map);
+			}
+			driver.quit();
+		}catch(Exception e) {
+			System.out.println("지마켓오류:" + e.toString());
+		}
+		return list;
+	}
+	
 	@GetMapping("/finance")
 	public List<HashMap<String,Object>> finance(){
 		List<HashMap<String,Object>> list=new ArrayList<>();
