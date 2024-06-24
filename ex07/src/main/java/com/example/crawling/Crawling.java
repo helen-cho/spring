@@ -44,11 +44,14 @@ public class Crawling {
 				String title=e.findElement(By.className("text__item")).getAttribute("title");
 				String price=e.findElement(By.className("text__value")).getText();
 				String image=e.findElement(By.className("image__item")).getAttribute("src");
+				String code=e.findElement(By.className("link__item")).getAttribute("data-montelena-goodscode");
+				System.out.println("-------------" + code);
 				System.out.println(index + "---" + title);
 				System.out.println(price);
 				System.out.println(image);
 				System.out.println("--------------------------------");
 				HashMap<String,Object> map=new HashMap<>();
+				map.put("code", code);
 				map.put("title", title);
 				map.put("price", price);
 				map.put("image", image);
