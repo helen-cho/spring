@@ -11,4 +11,5 @@ public interface GoodsDAO {
 	public GoodsVO read(String gid);
 	public int total();
 	public List<HashMap<String,Object>> list(QueryVO vo);
+	public void delete(String gid);
 }

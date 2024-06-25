@@ -35,4 +35,9 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public List<HashMap<String, Object>> list(QueryVO vo) {
 		return session.selectList(namespace + ".list", vo);
 	}
+
+	@Override
+	public void delete(String gid) {
+		session.delete(namespace + ".delete", gid);
+	}
 }
