@@ -7,4 +7,8 @@
     <fullyQualifiedTypeName name="com.example.dao.StuDAO"/>
     <fullyQualifiedTypeName name="com.example.dao.CouDAO"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+    <fullyQualifiedTypeName name="com.example.domain.NaverAPI"/>
 </qualifiedTypeNameHistroy>
