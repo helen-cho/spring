@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.GoodsVO;
 import com.example.domain.NaverAPI;
+import com.example.domain.QueryVO;
 import com.example.service.GoodsService;
 
 @RestController
@@ -17,6 +20,11 @@ import com.example.service.GoodsService;
 public class GoodsController {
 	@Autowired
 	GoodsService service;
+	
+	@GetMapping("/list") //테스트 /goods/list?page=1&size=3
+	public HashMap<String,Object> list(QueryVO vo){
+		return service.list(vo);
+	}
 	
 	@PostMapping("/insert")
 	public int insert(@RequestBody GoodsVO vo) {

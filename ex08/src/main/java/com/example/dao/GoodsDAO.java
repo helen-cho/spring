@@ -1,8 +1,14 @@
 package com.example.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.example.domain.GoodsVO;
+import com.example.domain.QueryVO;
 
 public interface GoodsDAO {
 	public void insert(GoodsVO vo);
 	public GoodsVO read(String gid);
+	public int total();
+	public List<HashMap<String,Object>> list(QueryVO vo);
 }

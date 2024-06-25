@@ -1,11 +1,14 @@
 package com.example.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.GoodsDAO;
 import com.example.domain.GoodsVO;
+import com.example.domain.QueryVO;
 
 @Service
 public class GoodsServiceImpl implements GoodsService{
@@ -21,5 +24,14 @@ public class GoodsServiceImpl implements GoodsService{
 			return 1;
 		}
 		return 0;
+	}
+
+	@Transactional
+	@Override
+	public HashMap<String, Object> list(QueryVO vo) {
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("total", dao.total());
+		map.put("list", dao.list(vo));
+		return map;
 	}
 }
