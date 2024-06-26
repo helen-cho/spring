@@ -14,4 +14,5 @@ public interface GoodsDAO {
 	public void delete(String gid);
 	public void update(GoodsVO vo);
 	public void updateImage(GoodsVO vo);
+	public void updateContents(GoodsVO vo);
 }

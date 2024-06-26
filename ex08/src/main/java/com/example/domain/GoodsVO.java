@@ -10,7 +10,14 @@ public class GoodsVO {
 	private int price;
 	private Date regDate;
 	private String image;
+	private String contents;
 	
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	public String getGid() {
 		return gid;
 	}

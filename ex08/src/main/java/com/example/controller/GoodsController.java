@@ -29,20 +29,33 @@ public class GoodsController {
 	@Autowired
 	GoodsDAO dao;
 	
+	@PostMapping("/update/contents")
+	public void updateContents(@RequestBody GoodsVO vo) {
+		dao.updateContents(vo);
+	}
+	
 	//이미지업로드
 	@PostMapping("/update/image/{gid}")
 	public void updateImage(@PathVariable("gid") String gid, 
 			MultipartHttpServletRequest multi)throws Exception {
+		
 		//파일업로드
 		MultipartFile file=multi.getFile("byte");
 		String filePath="/upload/mall/";
-		String fileName=System.currentTimeMillis() + ".jpg";
+		String fileName=gid + ".jpg";
+		
+		//파일이 존재하면 삭제
+		File oldFile=new File(filePath + fileName);
+		if(oldFile.exists()) {
+			oldFile.delete();
+		}else {
+			//이미지이름변경
+			GoodsVO vo=new GoodsVO();
+			vo.setGid(gid);
+			vo.setImage("/display?file=" + filePath + fileName);
+			dao.updateImage(vo);
+		}
 		file.transferTo(new File("c:" + filePath + fileName));
-		//이미지이름변경
-		GoodsVO vo=new GoodsVO();
-		vo.setGid(gid);
-		vo.setImage("/display?file=" + filePath + fileName);
-		dao.updateImage(vo);
 	}
 	
 	@GetMapping("/read/{gid}")
