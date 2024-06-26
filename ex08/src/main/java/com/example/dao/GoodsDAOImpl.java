@@ -45,4 +45,9 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public void update(GoodsVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public void updateImage(GoodsVO vo) {
+		session.update(namespace + ".updateImage", vo);
+	}
 }
