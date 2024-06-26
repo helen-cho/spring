@@ -40,4 +40,9 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public void delete(String gid) {
 		session.delete(namespace + ".delete", gid);
 	}
+
+	@Override
+	public void update(GoodsVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }

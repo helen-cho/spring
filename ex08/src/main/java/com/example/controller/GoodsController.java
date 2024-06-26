@@ -26,6 +26,16 @@ public class GoodsController {
 	@Autowired
 	GoodsDAO dao;
 	
+	@GetMapping("/read/{gid}")
+	public GoodsVO read(@PathVariable("gid") String gid) {
+		return dao.read(gid);
+	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody GoodsVO vo) {
+		dao.update(vo);
+	}
+	
 	@PostMapping("/delete/{gid}")
 	public void delete(@PathVariable("gid") String gid) {
 		dao.delete(gid);
