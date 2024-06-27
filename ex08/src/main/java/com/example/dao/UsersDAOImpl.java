@@ -16,4 +16,9 @@ public class UsersDAOImpl implements UsersDAO{
 	public void insert(UserVO vo) {
 		session.insert(namespace + ".insert", vo);
 	}
+
+	@Override
+	public UserVO read(String uid) {
+		return session.selectOne(namespace + ".read", uid);
+	}
 }

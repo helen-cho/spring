@@ -5,4 +5,7 @@
 		insert into users(uid, upass, uname)
 		values(#{uid}, #{upass}, #{uname})
 	</insert>
+	<select id="read" resultType="com.example.domain.UserVO">
+		select * from users where uid=#{uid}
+	</select>
 </mapper>

@@ -19,6 +19,20 @@ public class UsersController {
 	@Autowired
 	PasswordEncoder encoder;
 	
+	@PostMapping("/login")
+	public int login(@RequestBody UserVO vo) {
+		int result=0;
+		UserVO user=dao.read(vo.getUid());
+		if(user != null) {
+			if(encoder.matches(vo.getUpass(), user.getUpass())) {
+				result=1;
+			}else {
+				result=2;
+			}
+		}
+		return result;
+	}
+	
 	@PostMapping("/insert")
 	public void insert(@RequestBody UserVO vo) {
 		//비밀번호 암호화
