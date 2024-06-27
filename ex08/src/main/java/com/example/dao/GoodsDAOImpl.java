@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.AttachVO;
 import com.example.domain.GoodsVO;
 import com.example.domain.QueryVO;
 
@@ -54,5 +55,15 @@ public class GoodsDAOImpl implements GoodsDAO{
 	@Override
 	public void updateContents(GoodsVO vo) {
 		session.update(namespace + ".updateContents", vo);
+	}
+
+	@Override
+	public void insertAttach(AttachVO vo) {
+		session.insert(namespace + ".insertAttach", vo);
+	}
+
+	@Override
+	public List<AttachVO> listAttach(String gid) {
+		return session.selectList(namespace + ".listAttach", gid);
 	}
 }
