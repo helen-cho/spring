@@ -18,4 +18,5 @@ public interface GoodsDAO {
 	public void updateContents(GoodsVO vo);
 	public void insertAttach(AttachVO vo);
 	public List<AttachVO> listAttach(String gid);
+	public void deleteAttach(int aid);
 }

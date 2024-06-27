@@ -32,7 +32,22 @@ public class GoodsController {
 	@Autowired
 	GoodsDAO dao;
 	
-	@GetMapping("/attach/{gid}")
+	//첨부파일삭제
+	@PostMapping("/attach/delete") // /display?file=
+	public void deleteAttach(@RequestBody AttachVO vo) {
+		try {
+			String displayName=vo.getFilename();
+			int index = displayName.indexOf("=");
+			String fileName=displayName.substring(index + 1);
+			File file=new File("c:" + fileName);
+			if(file.exists()) file.delete();
+			dao.deleteAttach(vo.getAid());
+		}catch(Exception e) {
+			System.out.println("첨부파일삭제:" + e.toString());
+		}
+	}
+	
+	@GetMapping("/attach/{gid}") //테스트 /goods/attach/7057422395
 	public List<AttachVO> listAttach(@PathVariable("gid") String gid){
 		return dao.listAttach(gid);
 	}

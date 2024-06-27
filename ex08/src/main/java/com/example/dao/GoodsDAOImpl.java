@@ -66,4 +66,9 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public List<AttachVO> listAttach(String gid) {
 		return session.selectList(namespace + ".listAttach", gid);
 	}
+
+	@Override
+	public void deleteAttach(int aid) {
+		session.delete(namespace + ".deleteAttach", aid);
+	}
 }
