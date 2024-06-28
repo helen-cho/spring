@@ -3,7 +3,7 @@
 <mapper namespace="com.example.mapper.ReviewMapper">
  	<select id="list" resultType="com.example.domain.ReviewVO">
  		select *
- 		from reivew
+ 		from review
  		where gid=#{gid}
  		order by rid desc;
  	</select>
