@@ -47,6 +47,15 @@ public class GoodsController {
 		return service.insertRelated(gid, rid);
 	}
 	
+	//관련상품삭제
+	@PostMapping("/related/delete")
+	public void deleteRelated(@RequestBody HashMap<String,Object> map) {
+		String rid=map.get("rid").toString();
+		String gid=map.get("gid").toString();
+		System.out.println("................." + gid + "................" + rid);
+		dao.deleteRelated(gid, rid);
+	}
+	
 	//첨부파일삭제
 	@PostMapping("/attach/delete") // /display?file=
 	public void deleteAttach(@RequestBody AttachVO vo) {

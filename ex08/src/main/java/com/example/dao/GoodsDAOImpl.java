@@ -92,4 +92,12 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public List<HashMap<String, Object>> listRealated(String gid) {
 		return session.selectList(namespace + ".listRelated", gid);
 	}
+
+	@Override
+	public void deleteRelated(String gid, String rid) {
+		HashMap<String, Object> map=new HashMap<>();
+		map.put("gid", gid);
+		map.put("rid", rid);
+		session.delete(namespace + ".deleteRelated", map);
+	}
 }

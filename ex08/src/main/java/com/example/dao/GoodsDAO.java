@@ -22,4 +22,5 @@ public interface GoodsDAO {
 	public void insertRelated(String gid, String rid);
 	public int countRelated(String gid, String rid);
 	public List<HashMap<String,Object>> listRealated(String gid);
+	public void deleteRelated(String gid, String rid);
 }
