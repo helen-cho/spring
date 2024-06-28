@@ -19,4 +19,7 @@ public interface GoodsDAO {
 	public void insertAttach(AttachVO vo);
 	public List<AttachVO> listAttach(String gid);
 	public void deleteAttach(int aid);
+	public void insertRelated(String gid, String rid);
+	public int countRelated(String gid, String rid);
+	public List<HashMap<String,Object>> listRealated(String gid);
 }
